@@ -9,8 +9,7 @@ public class CursorMovement : MonoBehaviour
     private float rightStickY;
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
         rightStickX = Input.GetAxis("RightStickHorizontal");
         rightStickY = Input.GetAxis("RightStickVertical");
 

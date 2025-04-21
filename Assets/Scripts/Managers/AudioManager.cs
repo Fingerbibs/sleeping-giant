@@ -6,6 +6,8 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource musicSource;
     public AudioSource sfxSource;
+    public AudioSource voiceSource;
+
     public AudioLibrary library;
     
     private void Awake(){
@@ -43,8 +45,20 @@ public class AudioManager : MonoBehaviour
         sfxSource.PlayOneShot(clip);
     }
 
+    public void PlayVoice(AudioClip clip){
+        voiceSource.clip = clip;
+        voiceSource.loop = true;
+        voiceSource.Play();
+    }
+    
+    public void StopVoice(){
+        voiceSource.Stop();
+    }
+
     //HELPER FUNCTIONS
     public void PlaySpotlightOn() => PlaySFX(library.spotlightOn);
     public void PlaySpotlightOff() => PlaySFX(library.spotlightOff);
     public void PlayMainTheme() => PlayMusic(library.mainTheme);
+
+    public void PlayGuideVoice() => PlayVoice(library.guideVoice);
 }

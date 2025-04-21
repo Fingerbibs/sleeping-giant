@@ -7,8 +7,7 @@ public class FollowBehind : MonoBehaviour
     public float heightOffset = 0.0f;
     public float smoothSpeed = 10f; // For smooth follow (optional)
 
-    void Update()
-    {
+    void Update(){
         if (target == null) return;
 
         // Calculate position behind the target based on its forward direction

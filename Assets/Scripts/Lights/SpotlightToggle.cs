@@ -17,15 +17,13 @@ public class SpotlightToggle : MonoBehaviour
         SpotlightManager.Instance.OnSpotlightToggled += HandleToggle;
     }
 
-    void Update()
-    {
+    void Update(){
         if (Input.GetButtonDown("Fire3"))
         {
             SpotlightManager.Instance.ToggleSpotlight();
         }
     }
-    private void OnDestroy()
-    {
+    private void OnDestroy(){
         // Clean up event subscriptions
         if (SpotlightManager.Instance != null)
         {
@@ -34,13 +32,11 @@ public class SpotlightToggle : MonoBehaviour
         }
     }
 
-    private void HandleUnlock()
-    {
+    private void HandleUnlock(){
         Debug.Log("SpotlightToggle: Unlocked and ready!");
     }
 
-    private void HandleToggle(bool isOn)
-    {
+    private void HandleToggle(bool isOn){
         spotlight.enabled = isOn;
         spotlightCollider.enabled = isOn;
 

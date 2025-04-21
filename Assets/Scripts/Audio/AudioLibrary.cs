@@ -7,6 +7,9 @@ public class AudioLibrary : ScriptableObject
     public AudioClip spotlightOn;
     public AudioClip spotlightOff;
 
+    // Voice Clips
+    public AudioClip guideVoice;
+
     // Music
     public AudioClip mainTheme;
 }

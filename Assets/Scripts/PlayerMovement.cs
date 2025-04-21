@@ -7,33 +7,23 @@ public class PlayerMovement : MonoBehaviour{
     public float speed = 5.0f;
     public float jumpForce = 5.0f;
     public bool isOnGround = false;
-
     public Camera mainCamera;
 
+    private bool canMove = true;
     private float horizontalInput;
     private float forwardInput;
-    private Animator animator;
     private Rigidbody playerRb;
 
     void Start(){
         //setting our rigid body to the component in the Inspector
-        animator = GetComponent<Animator>();
         playerRb = GetComponent<Rigidbody>();
-        StartCoroutine(StandFinish());
     }
 
-    IEnumerator StandFinish(){
-        // Wait until "Stand" is the current animation
-        while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Stand"))
-            yield return null;
-
-        // Then wait until it's finished playing
-        while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
-            yield return null;
-    }
 
     void Update(){
 
+        if(!canMove) return;
+        
         Vector3 camForward = mainCamera.transform.forward;
         Vector3 camRight = mainCamera.transform.right;
 
@@ -86,5 +76,9 @@ public class PlayerMovement : MonoBehaviour{
     private void OnCollisionEnter(Collision collision){
         if(collision.gameObject.CompareTag("Ground"))
             isOnGround = true;
+    }
+
+    public void EnableMovement(bool state){
+        canMove = state;
     }
 }

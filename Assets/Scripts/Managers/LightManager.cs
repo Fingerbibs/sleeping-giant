@@ -10,8 +10,7 @@ public class LightManager : MonoBehaviour
     public float fadeDuration = 1f;  // Duration of the fade
     public float targetIntensity = 300f;  // Target intensity to fade to
 
-    private void Awake()
-    {
+    private void Awake(){
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -21,23 +20,20 @@ public class LightManager : MonoBehaviour
     }
 
     // Method to fade the light in or out
-    public void FadeLights(bool fadeIn, Light lightSource)
-    {
+    public void FadeLights(bool fadeIn, Light lightSource){
         areaLight = lightSource;
         StopAllCoroutines();  // Stop any existing fades
         StartCoroutine(FadeLightsCoroutine(fadeIn ? targetIntensity : 0f));  // Fade to target intensity or off
     }
 
-    private IEnumerator FadeLightsCoroutine(float target)
-    {
+    private IEnumerator FadeLightsCoroutine(float target){
         if (areaLight == null) yield break;  // Ensure the light source is assigned
 
         float initialIntensity = areaLight.intensity;
         float timeElapsed = 0f;
 
         // Fade the light's intensity over time
-        while (timeElapsed < fadeDuration)
-        {
+        while (timeElapsed < fadeDuration){
             timeElapsed += Time.deltaTime;
             float lerpedIntensity = Mathf.Lerp(initialIntensity, target, timeElapsed / fadeDuration);
             areaLight.intensity = lerpedIntensity;
