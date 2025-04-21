@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spotlightOn: {fileID: 8300000, guid: bd2773a940c3faa49bb8683d480fa1f1, type: 3}
   spotlightOff: {fileID: 8300000, guid: 54d4e5ba2d757984db0028a9b277eb34, type: 3}
+  guideVoice: {fileID: 8300000, guid: 4b6f207f1ab772943b6dd8f1a010368c, type: 3}
   mainTheme: {fileID: 8300000, guid: 1864723235593d840b9a561599808201, type: 3}

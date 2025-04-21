@@ -48,6 +48,7 @@ public class AudioManager : MonoBehaviour
     public void PlayVoice(AudioClip clip){
         voiceSource.clip = clip;
         voiceSource.loop = true;
+        voiceSource.time = Random.Range(0f, clip.length);
         voiceSource.Play();
     }
     

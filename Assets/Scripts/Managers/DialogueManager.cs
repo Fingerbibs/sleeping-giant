@@ -28,6 +28,8 @@ public class DialogueManager : MonoBehaviour
             }
             else{
                 // Instantly Finishes Typing
+                AudioManager.Instance.StopVoice();
+                
                 dialogueText.text = currentSentence;
                 isTyping = false;
                 StopAllCoroutines();
